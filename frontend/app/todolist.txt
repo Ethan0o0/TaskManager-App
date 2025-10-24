@@ -1,0 +1,23 @@
+ToDo List
+1. Finish Frontend
+  1a. Finish edit functionality (Update for the bakend only and it will render on its own)
+  1b. Finish delete functionality (USUALLY DELETED WHEN DELETED FROM BACKEND, SAVE THIS FOR BACKEND IMPLEMENTATION)
+2. Create the backend
+  2a. setup database (supabase)
+  2b. Do file organizing(rewatch scrimba on express for this)
+  2c. setup requests
+3. Get request for displaying tasks
+  3a. JWT for authentication signin for this aka /me
+3.5. Post request for adding a new task
+4. Put request for filtering
+5. Put request for editing
+6. Put request for completion
+7. Delete request for deleting
+8. Post request for signup
+9. Post request for Login
+10. JWT for authentication for all
+  10a. Bcrypyt for passwords 
+11. Restyle the frontend
+12. Change the functionality to work while deployed
+13. Show error and loading states (should be pretty simple)
+14. Deploy project
