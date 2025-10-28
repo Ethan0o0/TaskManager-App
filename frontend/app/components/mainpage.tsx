@@ -14,12 +14,10 @@ export default function MainPage(props: any){
         setIsPopUp( (bool) => !bool);
     }
 
-    //FIX THE ISSUE OF USING THE CLIENT HERE
-
     return(
         <>
             <div className='dashboard-container'>
-                <TaskList btnHandler={handlePopup} all-tasks={props.alltasks}/>
+                <TaskList btnHandler={handlePopup} alltasks={props.alltasks}/>
                 <FormAndFilter />
             </div>
             {isPopUp && <EditTaskForm btnHandler={handlePopup} />}

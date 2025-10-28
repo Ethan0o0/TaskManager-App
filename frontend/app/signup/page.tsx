@@ -1,10 +1,15 @@
+'use client'
 import '@/app/css/signup.css'
+import Form from 'next/form'
+import HandleSignup from '../requests/postsignup'
+// import { useRouter } from "next/navigation";
 
 export default function SignUp(){
+
     return(
             <div className='signup-container'>
                 <h1>SignUp</h1>
-                <form action="" className="signup-form">
+                <form className="signup-form" onSubmit={HandleSignup}>
                     <div>
                         <label htmlFor="name">Name</label><br />
                         <input type="text" id="name" name="name" required/>

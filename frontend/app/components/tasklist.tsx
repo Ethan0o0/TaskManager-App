@@ -2,16 +2,13 @@ import { Tasks } from "../types/types"
 
 export default function TaskList(props : any){
 
-    // function isChecked(completed: boolean) : string{
-    //     return 
-    // }
-    const returnedTasks: Tasks[] = props.alltasks || [];
-    const allTasks = returnedTasks.map( (currentTask: Tasks) => {
+    // const returnedTasks: Tasks[] = props.alltasks || [];
+    const allTasks: [] = props.alltasks.map( (currentTask: Tasks) => {
         return(
-            <li>
+            <li id={(currentTask.id).toString()}>
                 <div id='task-description'>{currentTask.description}</div>
                 <div className='task-buttons'>
-                    <input type='checkbox' id='completed' name='completed' checked/>
+                    <input type='checkbox' id='completed' name='completed' defaultChecked={currentTask.completed}/>
                     <button onClick={props.btnHandler}>Edit</button>
                     <button>Delete</button>
                 </div>
@@ -24,7 +21,8 @@ export default function TaskList(props : any){
             <div className="tasklist-container">
                 <h2 id='task-title'>Task List</h2>
                 <ul className="task-list">
-                    <li>
+                    {allTasks}
+                    {/* <li>
                         <div id='task-description'>Wash Sheets</div>
                         <div className='task-buttons'>
                             <input type='checkbox' id='completed' name='completed' />
@@ -47,7 +45,7 @@ export default function TaskList(props : any){
                             <button>Edit</button>
                             <button>Delete</button>
                         </div>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </>
