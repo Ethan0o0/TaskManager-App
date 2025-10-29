@@ -7,16 +7,15 @@ export default function SignUp(){
 
     const router = useRouter();
 
-    // async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
-    //     event.preventDefault();
-    //     const success = await HandleSignup(event);
-    //     if (success) router.push('/login')
-    // }
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+        await HandleSignup(event, router)
+    }
 
     return(
             <div className='signup-container'>
                 <h1>SignUp</h1>
-                <form className="signup-form" onSubmit={(e) => {HandleSignup(e, router)}}>
+                <form className="signup-form" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="name">Name</label><br />
                         <input type="text" id="name" name="name" required/>

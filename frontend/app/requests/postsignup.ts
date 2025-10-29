@@ -1,8 +1,6 @@
 
 export default async function HandleSignup(event: React.FormEvent<HTMLFormElement>, router: any){
 
-    event.preventDefault();
-
     const formData: FormData = new FormData(event.currentTarget)
     const {name, email, password, confirmPassword} = Object.fromEntries(formData.entries())
     const signUpData = {name, email, password};
@@ -11,7 +9,7 @@ export default async function HandleSignup(event: React.FormEvent<HTMLFormElemen
         alert("Passwords do not match!");
         return; // stop execution
       }
-
+    
       try {
         const response = await fetch('http://localhost:5020/signup', {
           method: 'POST',
@@ -23,14 +21,14 @@ export default async function HandleSignup(event: React.FormEvent<HTMLFormElemen
         })
   
         if (!response.ok){
-          throw new Error('HTTP error')
+            throw new Error('HTTP error')
         }
-  
-        const result = await response.json();
+        
+        // const result = await response.json();
         router.push('/login')
   
       }
       catch(e){
-        console.log(`Error:`, e);
+        console.error(`Error:`, e);
       }
 }
