@@ -1,15 +1,22 @@
 'use client'
 import '@/app/css/signup.css'
-import Form from 'next/form'
 import HandleSignup from '../requests/postsignup'
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function SignUp(){
+
+    const router = useRouter();
+
+    // async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+    //     event.preventDefault();
+    //     const success = await HandleSignup(event);
+    //     if (success) router.push('/login')
+    // }
 
     return(
             <div className='signup-container'>
                 <h1>SignUp</h1>
-                <form className="signup-form" onSubmit={HandleSignup}>
+                <form className="signup-form" onSubmit={(e) => {HandleSignup(e, router)}}>
                     <div>
                         <label htmlFor="name">Name</label><br />
                         <input type="text" id="name" name="name" required/>

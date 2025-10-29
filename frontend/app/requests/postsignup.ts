@@ -1,10 +1,10 @@
 
-export default async function HandleSignup(event: React.FormEvent<HTMLFormElement>){
+export default async function HandleSignup(event: React.FormEvent<HTMLFormElement>, router: any){
 
     event.preventDefault();
+
     const formData: FormData = new FormData(event.currentTarget)
-    const objectFormData = Object.fromEntries(formData.entries())
-    const {name, email, password, confirmPassword} = objectFormData;
+    const {name, email, password, confirmPassword} = Object.fromEntries(formData.entries())
     const signUpData = {name, email, password};
 
     if (password !== confirmPassword) {
@@ -27,7 +27,7 @@ export default async function HandleSignup(event: React.FormEvent<HTMLFormElemen
         }
   
         const result = await response.json();
-        // router.push('/login')
+        router.push('/login')
   
       }
       catch(e){
