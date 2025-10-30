@@ -5,7 +5,7 @@ export default function TaskList(props : any){
     // const returnedTasks: Tasks[] = props.alltasks || [];
     const allTasks: [] = props.alltasks.map( (currentTask: Tasks) => {
         return(
-            <li id={(currentTask.id).toString()}>
+            <li id={(currentTask.id).toString()} key={(currentTask.id).toString()}>
                 <div id='task-description'>{currentTask.description}</div>
                 <div className='task-buttons'>
                     <input type='checkbox' id='completed' name='completed' defaultChecked={currentTask.completed}/>

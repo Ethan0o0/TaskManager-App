@@ -12,7 +12,7 @@ export const getSignUpData = async (req: Request, res: Response) => {
         .select()
 
     if (error){
-        console.log("Error getting tasks", error)
+        console.log("Error signing up", error)
     }
 
     try{
