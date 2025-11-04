@@ -1,4 +1,4 @@
-export default function FormAndFilter(){
+export default function FormAndFilter(props: any){
     return(
         <div className="form-filter-container">
             <form action="" className="add-task">
@@ -8,7 +8,8 @@ export default function FormAndFilter(){
             </form>
             <div className='filter-container'>
                 <label htmlFor="filter">Filter By</label>
-                <select name="filter" id="filter">
+                <select name="filter" id="filter" defaultValue='all' onChange={(e) => props.filterHandler(e.target.value)}>
+                    <option value="all">All</option>
                     <option value="completed">Completed</option>
                     <option value="uncompleted">Uncompleted</option>
                 </select>

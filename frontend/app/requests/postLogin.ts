@@ -16,7 +16,8 @@ export default async function handleLogin(event: React.FormEvent<HTMLFormElement
     //UNAUTHORIZED DATA HANDLING HERE
     //MUST ALSO ADD HANDLING FOR INVALID EMAIL
     if (response.status == 401){
-        console.log("PASSWORD OR EMAIL FAILED PLEASE TRY AGAIN")
+        // console.log("PASSWORD OR EMAIL FAILED PLEASE TRY AGAIN")
+        alert("PASSWORD OR EMAIL FAILED PLEASE TRY AGAIN")
     }
 
     if (!response.ok){

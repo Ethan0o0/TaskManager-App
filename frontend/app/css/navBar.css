@@ -30,3 +30,20 @@
     border: 2px black solid;
     padding: 15px 25px;
 }
+
+.userName-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#userName {
+    font-size: 30px;
+}
+
+#logout-button {
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
+}

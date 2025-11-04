@@ -2,8 +2,7 @@ ToDo List
 1. Finish Frontend
   1a. Finish edit functionality (Update for the bakend only and it will render on its own)
   1b. Finish delete functionality (USUALLY DELETED WHEN DELETED FROM BACKEND, SAVE THIS FOR BACKEND IMPLEMENTATION)
-2. Create the backend
-  2a. setup database (supabase)
+2. Create the backend (LEARN TO SET IT UP WITH TYPESCRIPT)
   2b. Do file organizing(rewatch scrimba on express for this)
   2c. setup requests
 3. Get request for displaying tasks
