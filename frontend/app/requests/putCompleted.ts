@@ -19,7 +19,7 @@ export default async function HandleSignup(token: string, isChecked: boolean, ta
         }
         
         // const result = await response.json();
-        console.log("Success in updating the backend")
+        // console.log("Success in updating the backend")
   
       }
       catch(e){

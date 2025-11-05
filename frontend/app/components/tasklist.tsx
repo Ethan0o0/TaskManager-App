@@ -7,7 +7,6 @@ export default function TaskList(props : any){
     //HANDLER FUNCTION
     function checkboxHandler(completed: boolean, task_id: number) : void {
         if (!props.token) return;
-        completed = !completed;
         HandleSignup(props.token, completed, task_id);
     }
     

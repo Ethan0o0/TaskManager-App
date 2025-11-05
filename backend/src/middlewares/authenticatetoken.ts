@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path'
 import {Response, Request, NextFunction} from 'express' 
 import { Secret } from 'jsonwebtoken';
+import { AuthTokenPayload } from '../types/auth';
 dotenv.config({path: path.resolve(__dirname, '../../.env')});
 
 export default function authenticateToken(req: Request, res: Response, next: NextFunction){
@@ -19,8 +20,9 @@ export default function authenticateToken(req: Request, res: Response, next: Nex
             return res.status(403).json({message: "Invalid or Expired Token"})
         }
 
-        req.body = user as object;
-        // console.log(req.body)
+        // console.log(user)
+        req.user = user as AuthTokenPayload;
+        // console.log(req.user)
         next();
     })
 }

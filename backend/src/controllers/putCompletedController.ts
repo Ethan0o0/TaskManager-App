@@ -3,7 +3,7 @@ import supabase from '../database/supabase-client'
 
 export const putCompleted = async (req: Request, res: Response) => {
 
-    console.log(req.body)
+    // console.log(req.body)
     const {error} = await supabase
         .from("tasks")
         .update({completed: req.body.completed})

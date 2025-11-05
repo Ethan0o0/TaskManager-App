@@ -9,7 +9,7 @@ export const getTaskController = async (req: Request, res: Response) => {
         let {data, error} = await supabase
         .from("tasks")
         .select("*")
-        .eq("user_id", req.body.id)
+        .eq("user_id", req.user?.id)
 
         if (error){
             console.log("Error getting tasks", error)
@@ -21,7 +21,7 @@ export const getTaskController = async (req: Request, res: Response) => {
         let {data, error} = await supabase
         .from("tasks")
         .select("*")
-        .eq("user_id", req.body.id)
+        .eq("user_id", req.user?.id)
         .eq("completed", filterData === 'completed' ? true : false)
 
         if (error){
