@@ -11,7 +11,7 @@ export default async function HandleSignup(event: React.FormEvent<HTMLFormElemen
       }
     
       try {
-        const response = await fetch('https://job-tracker-app-72g4.onrender.com/signup', {
+        const response = await fetch('https://taskmanager-app-48jr.onrender.com/signup', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json"

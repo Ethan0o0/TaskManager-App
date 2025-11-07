@@ -4,7 +4,7 @@ export default async function HandleCompleted(token: string, isChecked: boolean,
     // console.log(token);
     
       try {
-        const response = await fetch('https://job-tracker-app-72g4.onrender.com/completed', {
+        const response = await fetch('https://taskmanager-app-48jr.onrender.com/completed', {
           method: 'PUT',
           headers: {
             "Content-Type": "application/json",
