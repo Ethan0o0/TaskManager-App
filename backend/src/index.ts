@@ -6,7 +6,7 @@ const app: Application = express();
 const PORT: number = 5020;
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://task-manager-app-one-wine.vercel.app/',
     credentials:true,
 }))
 

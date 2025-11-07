@@ -5,7 +5,7 @@ export default async function isLoggedIn(){
     const token = localStorage.getItem('token')
 
     try{
-        const response = await fetch('http://localhost:5020/api/me', {
+        const response = await fetch('https://job-tracker-app-72g4.onrender.com/api/me', {
             headers: {'Authorization': `Bearer ${token}` || ""},
             credentials: 'include'
         })

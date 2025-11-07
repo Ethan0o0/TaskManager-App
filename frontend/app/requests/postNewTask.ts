@@ -5,7 +5,7 @@ export default async function AddNewTask(event: React.FormEvent<HTMLFormElement>
   const description = formData.get("description") as string
   
     try {
-      const response = await fetch('http://localhost:5020/newtask', {
+      const response = await fetch('https://job-tracker-app-72g4.onrender.com/newtask', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

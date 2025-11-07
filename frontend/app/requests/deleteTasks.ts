@@ -3,7 +3,7 @@ export default async function DeleteTask(token: string, task_id: number){
     // console.log(token);
     
       try {
-        const response = await fetch('http://localhost:5020/delete', {
+        const response = await fetch('https://job-tracker-app-72g4.onrender.com/delete', {
           method: 'DELETE',
           headers: {
             "Content-Type": "application/json",

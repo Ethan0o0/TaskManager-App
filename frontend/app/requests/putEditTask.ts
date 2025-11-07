@@ -5,7 +5,7 @@ export default async function EditTask(event: React.FormEvent<HTMLFormElement>, 
     const task = formData.get("task") as string
     
     try {
-    const response = await fetch('http://localhost:5020/edittask', {
+    const response = await fetch('https://job-tracker-app-72g4.onrender.com/edittask', {
         method: 'PUT',
         headers: {
         "Content-Type": "application/json",

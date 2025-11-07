@@ -2,7 +2,7 @@ export default async function GetAllTasks(token: string, filterData: string){
     // const token = localStorage.getItem('token')
     // console.log("This is the get request for tasks")
 
-    const response = await fetch(`http://localhost:5020/alltasks/${filterData}`, {
+    const response = await fetch(`https://job-tracker-app-72g4.onrender.com/alltasks/${filterData}`, {
         headers: {'Authorization': `Bearer ${token}` || ""},
         credentials: 'include'
     })

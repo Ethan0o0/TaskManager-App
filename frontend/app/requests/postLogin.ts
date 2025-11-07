@@ -4,7 +4,7 @@ export default async function handleLogin(event: React.FormEvent<HTMLFormElement
     const {email, password} = Object.fromEntries(formData.entries())
 
     try {
-    const response = await fetch('http://localhost:5020/api/login', {
+    const response = await fetch('https://job-tracker-app-72g4.onrender.com/api/login', {
         method: 'POST',
         headers: {
         "Content-Type": "application/json"
