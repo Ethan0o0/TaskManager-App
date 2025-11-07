@@ -8,14 +8,17 @@ export default async function GetAllTasks(token: string, filterData: string){
     })
 
     if (response.status == 401){
-        console.log("Authentication Required")
-        return;
+        return {error: "UNAUTHORIZED"}
+    }
+
+    if (response.status == 403) {
+        return {error: "TOKEN_EXPIRED"}
     }
 
     if (!response.ok){
-        throw new Error('Caught error at fetching all tasks')
+        return {error: "SERVER_ERROR"}
     }
+    
     const result = await response.json()
-    // console.log(result)
     return result;
 }

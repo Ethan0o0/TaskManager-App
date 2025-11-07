@@ -5,7 +5,7 @@ export const AddNewTask = async (req: Request, res: Response) => {
 
     const {error} = await supabase
         .from("tasks")
-        .insert([{user_id: req.user?.id, description: req.body.description.toLowerCase(), completed: req.body.completed}])
+        .insert([{user_id: req.user?.id, description: req.body.description, completed: req.body.completed}])
         .select()
 
     if (error){

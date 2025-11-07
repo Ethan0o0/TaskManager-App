@@ -1,5 +1,4 @@
 
-
 export default async function isLoggedIn(){
 
     // console.log("Got into post request for /me")
@@ -15,7 +14,6 @@ export default async function isLoggedIn(){
         }
 
         const result = await response.json();
-        console.log(result)
 
         return true;
     }

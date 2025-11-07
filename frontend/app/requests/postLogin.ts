@@ -13,21 +13,18 @@ export default async function handleLogin(event: React.FormEvent<HTMLFormElement
         body: JSON.stringify({email, password})
     })
 
-    //UNAUTHORIZED DATA HANDLING HERE
-    //MUST ALSO ADD HANDLING FOR INVALID EMAIL
     if (response.status == 401){
-        // console.log("PASSWORD OR EMAIL FAILED PLEASE TRY AGAIN")
-        alert("PASSWORD OR EMAIL FAILED PLEASE TRY AGAIN")
+        return {error: "INVALID PASSWORD OR EMAIL"}
     }
 
     if (!response.ok){
-        throw new Error('HTTP error')
+        return {error: "SERVER ERROR"}
     }
 
     const result = await response.json();
     localStorage.setItem('user', result.name)
     localStorage.setItem('token', result.token)
-    router.push('/')
+    window.location.href = '/';
 
     }
     catch(e){

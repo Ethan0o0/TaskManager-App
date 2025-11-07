@@ -4,8 +4,11 @@ export default function FormAndFilter(props: any){
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
+        const form = event.currentTarget;
         await AddNewTask(event, false, props.token)
+        form.reset();
         props.stateHandler();
+        
     }
 
     return(

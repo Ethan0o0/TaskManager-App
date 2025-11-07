@@ -30,6 +30,7 @@ export default function NavBar(){
     setUserName(null)
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    window.location.reload();
 
   }
 

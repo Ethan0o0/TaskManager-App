@@ -2,6 +2,31 @@
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.dashboard-container.disabled{
+    filter: blur(5px);
+    opacity: 0.6;
+    pointer-events: none; /* ✅ block clicking and interactions */
+    user-select: none; /* prevent selecting text */
+}
+
+.disabled-overlay {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    z-index: 1000;
+    text-align: center;
+    white-space: nowrap;
+    margin-top: 100px;
 }
 
 .tasklist-container{
@@ -10,6 +35,7 @@
     border: solid black 2px;
     width: 800px;
     height: 500px;
+    scrollbar-width: thin;
 }
 
 #task-title{
@@ -26,7 +52,8 @@
     list-style-type: none;
     font-size: 30px;
     gap: 5px;
-    padding: 0px 0;  
+    padding: 0px 0;
+    overflow-y: auto;  
 }
 
 .task-list > li {

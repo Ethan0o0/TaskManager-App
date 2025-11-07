@@ -22,15 +22,19 @@ export default function MainPage(props: any){
         
         setToken(localStorage.getItem('token'));
         const temp_token = localStorage.getItem('token')
+        // console.log(temp_token)
         if (!temp_token) return;
 
         GetAllTasks(temp_token, filterData).then((data) => {
+            if (data?.error){
+                localStorage.removeItem('token')
+                return;
+            }
             setTasks(data);
         });
     }, [filterData, taskState])
 
     //FUNCTIONS FOR HANDLING
-    //FIX THIS TMRW
     function handlePopup(id: number) : void{
         setIsPopUp( (bool) => !bool);
     }
@@ -41,15 +45,22 @@ export default function MainPage(props: any){
         setFilterData(filteredData);
     }
 
-    function HandleDeleteState(){
+    function HandleDeleteState(): void{
         setTaskState((prevVal) => prevVal + 1);
     }
 
+    const isDisabled: boolean = tasks.length === 0;
+
     return(
         <>
-            <div className='dashboard-container'>
+            {isDisabled && (
+                <div className='disabled-overlay'>
+                    <p>Login Required To Access Features</p>
+                </div>
+            )}
+            <div className={`dashboard-container ${isDisabled ? "disabled": ""}`}>
                 <TaskList btnHandler={handlePopup} alltasks={tasks} token={token} stateHandler={HandleDeleteState} editHandle={handleEditTask}/>
-                <FormAndFilter filterHandler={handleFilter} token={token} stateHandler={HandleDeleteState}/>
+                <FormAndFilter filterHandler={handleFilter} token={token} stateHandler={HandleDeleteState} loggedIn={tasks.length}/>
             </div>
             {isPopUp && <EditTaskForm btnHandler={handlePopup} stateHandler={HandleDeleteState} token={token} task_id={editTaskID}/>}
         </>

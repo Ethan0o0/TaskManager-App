@@ -2,14 +2,24 @@
 import '@/app/css/login.css'
 import { useRouter } from "next/navigation";
 import handleLogin from "@/app/requests/postLogin"
+import { useState } from 'react';
 
 export default function Login(){
 
     const router = useRouter();
+    const [loginError, setLoginError] = useState("")
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
-        await handleLogin(event, router)
+        const loginValue = await handleLogin(event, router)
+        if (loginValue){
+            setLoginError(loginValue.error);
+        }
+        else{
+            setLoginError("")
+        }
+        
+        // window.location.reload()
     }
 
     return(
@@ -26,6 +36,7 @@ export default function Login(){
                 </div>
                 <input type="submit" value='submit' id='submit-button'/>
             </form>
+            <p>{loginError}</p>
         </div>
     )
 }
